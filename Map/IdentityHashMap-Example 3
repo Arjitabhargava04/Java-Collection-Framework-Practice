@@ -1,0 +1,19 @@
+// Iterating over IdentityHashMap
+
+import java.util.IdentityHashMap;
+import java.util.Map;
+
+public class IterateIdentityHashMap{
+public static void main(String[] args){
+Map <String, String> map= new IdentityHashMap<>();
+
+map.put("A", "Alpha");
+map.put("B", "Beta");
+
+System.out.println("Iterating over entries :");
+
+for(Map.Entry <String, String > entry : map.entrySet()){
+System.out.println("key(ref) :" +System.identityHashCode(entry.getKey() + "=" +entry.getKey() + ",value" +entry.getValue()));
+}
+}
+}
