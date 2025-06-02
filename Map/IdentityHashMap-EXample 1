@@ -1,0 +1,30 @@
+/*
+IdentityHashMap in collection java
+Basic Usage : put , get , size
+*/
+
+import java.util.IdentityHashMap;
+import java.util.Map;
+
+public class IdentityHashMapDemo{
+public static void main(String[] args){
+
+Map<String , String> map= new IdentityHashMap<>();
+
+// Create two distinct string objects with same content
+
+String Key1= new String("hello");
+String Key2= new String("hello");
+
+//put key in Map
+map.put(Key1 , "World1");
+map.put(Key2 ," World2");
+
+//size is 2 because key are diff references 
+System.out.println("Map.size :" +map.size());
+
+// retrieve values by keys
+System.out.println("value for key1 : " +map.get(Key1));
+System.out.println("Value for key2 : " +map.get(Key2));
+}
+}
