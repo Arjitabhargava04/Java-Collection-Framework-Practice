@@ -1,0 +1,27 @@
+// Contrast with HashMap
+
+import java.util.IdentityHashMap;
+import java.util.Map;
+import java.util.*;
+
+public class IdentityHashMapDemo1{
+public static void main(String[] args){
+
+Map <String, String> IdentityHashMap= new IdentityHashMap<>();
+HashMap <String, String> hashMap= new HashMap<>();
+String key1= new String("Hello");
+String key2= new String("Hello"); 
+
+hashMap.put(key1, "HashMap value 1");
+hashMap.put(key2, "HashMap value 2");
+
+IdentityHashMap.put(key1, "IdentityHashMap 1");
+IdentityHashMap.put(key2, "IdentityHashMap 2");
+
+System.out.println("HashMap size :" +hashMap.size());
+System.out.println("HashMap value for Key1 :" +hashMap.get(key1));
+
+System.out.println("IdentityHashMap size :" + IdentityHashMap.size());
+System.out.println("IdentityHashMap value for key1 :" +IdentityHashMap.get(key1));
+}
+}
