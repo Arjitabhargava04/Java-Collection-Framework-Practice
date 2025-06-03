@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Person implements Comparable<Person> {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Implement the compareTo method for natural ordering by age
+    @Override
+    public int compareTo(Person other) {
+        return Integer.compare(this.age, other.age);
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ")";
+    }
+
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", 30));
+        people.add(new Person("Bob", 25));
+        people.add(new Person("Charlie", 35));
+
+        System.out.println("Before sorting:");
+        for (Person p : people) {
+            System.out.println(p);
+        }
+
+        // Sort the list using natural ordering defined by compareTo
+        Collections.sort(people);
+
+        System.out.println("\nAfter sorting by age:");
+        for (Person p : people) {
+            System.out.println(p);
+        }
+    }
+}
