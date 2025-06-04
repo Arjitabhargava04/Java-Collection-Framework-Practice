@@ -1,0 +1,35 @@
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+public class SortedMapExample {
+    public static void main(String[] args) {
+        // Create a SortedMap using TreeMap
+        SortedMap<String, Integer> employeeAges = new TreeMap<>();
+
+        // Adding key-value pairs
+        employeeAges.put("Alice", 30);
+        employeeAges.put("David", 45);
+        employeeAges.put("Bob", 25);
+        employeeAges.put("Carol", 40);
+
+        // Output the entire map (keys will be sorted)
+        System.out.println("Sorted Employee Ages:");
+        for (String name : employeeAges.keySet()) {
+            System.out.println(name + ": " + employeeAges.get(name));
+        }
+
+        // Accessing a sub-map
+        SortedMap<String, Integer> headMap = employeeAges.headMap("Carol");
+        System.out.println("\nEmployees before 'Carol': " + headMap);
+
+        SortedMap<String, Integer> tailMap = employeeAges.tailMap("Carol");
+        System.out.println("Employees from 'Carol' onwards: " + tailMap);
+
+        SortedMap<String, Integer> subMap = employeeAges.subMap("Bob", "David");
+        System.out.println("Employees between 'Bob' and 'David': " + subMap);
+
+        // First and last keys
+        System.out.println("\nFirst key: " + employeeAges.firstKey());
+        System.out.println("Last key: " + employeeAges.lastKey());
+    }
+}
