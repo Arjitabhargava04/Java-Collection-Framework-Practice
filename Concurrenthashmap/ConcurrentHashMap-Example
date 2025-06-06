@@ -1,0 +1,28 @@
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+class ConcurrentHashMapDemo2{
+
+public static void main(String[] args){
+
+ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+
+map.put("A", 1);
+map.put("B", 2);
+map.put("C", 3);
+map.put("D", 4);
+map.put("E", 5);
+map.putIfAbsent("F", 6);
+
+System.out.println(map);
+System.out.println("\n");
+System.out.println("Elements after removing 3 :");
+map.remove("C", 3);
+System.out.println(map);
+System.out.println("\n");
+System.out.println("After Updation : ");
+map.put("C", 9);
+map.replace("C", 9, 3);
+System.out.println(map);
+}
+}
