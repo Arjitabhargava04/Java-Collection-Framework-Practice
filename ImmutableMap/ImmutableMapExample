@@ -1,0 +1,62 @@
+// ImmutableMap -- java 9
+/*
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+//import java.util.ImmutableMap;
+
+public class ImmutableMapDemo{
+public static void main(String[] args){
+
+Map<String, Integer> map1= new HashMap<>();
+map1.put("A", 1);
+map1.put("B", 2);
+map1.put("C", 3);
+
+Map<String, Integer> immutablemap2= Collections.UnmodifiableMap(map1);
+
+System.out.println(map2);
+Map<String, Integer> immutablemap3= Map.of("Shubham ", 98, "Vivek", 89);
+
+// map3.put("Akshit", 88);
+Map <String, Integer> immutablemap4= Map.ofEntries(
+Map.entry("Akshit" ,99), 
+Map.entry("vivek", 99)
+);
+
+}
+}
+*/
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ImmutableMapDemo {
+    public static void main(String[] args) {
+        // 1. Create a mutable map
+        Map<String, Integer> mutableMap = new HashMap<>();
+        mutableMap.put("A", 1);
+        mutableMap.put("B", 2);
+        mutableMap.put("C", 3);
+
+        // 2. Create unmodifiable view (not truly immutable)
+        Map<String, Integer> unmodifiableMap = Collections.unmodifiableMap(mutableMap);
+        System.out.println("Unmodifiable Map: " + unmodifiableMap);
+
+        // 3. Create truly immutable map (Java 8 style)
+        Map<String, Integer> immutableMap = Collections.unmodifiableMap(new HashMap<String, Integer>() {{
+            put("Shubham", 98);
+            put("Vivek", 89);
+        }});
+        System.out.println("Immutable Map: " + immutableMap);
+
+        // This will throw UnsupportedOperationException
+        try {
+            immutableMap.put("Akshit", 88);
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Expected exception when trying to modify: " + e);
+        }
+    }
+}
